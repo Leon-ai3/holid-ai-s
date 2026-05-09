@@ -1,0 +1,90 @@
+{
+  "name": "PianoVacanze",
+  "type": "object",
+  "properties": {
+    "nome": {
+      "type": "string",
+      "description": "Nome del piano (es. 'Vacanze estive 2025')"
+    },
+    "data_inizio": {
+      "type": "string",
+      "format": "date",
+      "description": "Data di inizio vacanze"
+    },
+    "data_fine": {
+      "type": "string",
+      "format": "date",
+      "description": "Data di fine vacanze (ultimo giorno disponibile)"
+    },
+    "giorni_riposo_settimana": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Giorni della settimana di riposo (0=domenica, 6=sabato)"
+    },
+    "ore_studio_giorno": {
+      "type": "number",
+      "default": 2,
+      "description": "Ore massime di studio al giorno"
+    },
+    "piano_generato": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "compiti": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "compito_id": {
+                  "type": "string"
+                },
+                "materia": {
+                  "type": "string"
+                },
+                "tipo": {
+                  "type": "string"
+                },
+                "descrizione": {
+                  "type": "string"
+                },
+                "quantita_giorno": {
+                  "type": "number"
+                },
+                "unita_misura": {
+                  "type": "string"
+                },
+                "minuti": {
+                  "type": "number"
+                },
+                "completato": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Piano giornaliero generato dall'IA"
+    },
+    "stato": {
+      "type": "string",
+      "enum": [
+        "bozza",
+        "generato",
+        "in_corso"
+      ],
+      "default": "bozza"
+    }
+  },
+  "required": [
+    "nome",
+    "data_inizio",
+    "data_fine"
+  ]
+}
