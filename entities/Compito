@@ -1,0 +1,66 @@
+{
+  "name": "Compito",
+  "type": "object",
+  "properties": {
+    "materia": {
+      "type": "string",
+      "description": "Materia scolastica"
+    },
+    "tipo": {
+      "type": "string",
+      "enum": [
+        "esercizi",
+        "studio",
+        "lettura",
+        "tema",
+        "versione",
+        "problemi",
+        "ripasso",
+        "altro"
+      ],
+      "description": "Tipo di compito"
+    },
+    "descrizione": {
+      "type": "string",
+      "description": "Descrizione dettagliata del compito"
+    },
+    "quantita": {
+      "type": "number",
+      "description": "Numero di esercizi / pagine / capitoli"
+    },
+    "unita_misura": {
+      "type": "string",
+      "enum": [
+        "esercizi",
+        "pagine",
+        "capitoli",
+        "paragrafi",
+        "problemi"
+      ],
+      "default": "esercizi",
+      "description": "Unit\u00e0 di misura della quantit\u00e0"
+    },
+    "difficolta": {
+      "type": "string",
+      "enum": [
+        "facile",
+        "media",
+        "difficile"
+      ],
+      "default": "media",
+      "description": "Difficolt\u00e0 stimata"
+    },
+    "minuti_stimati": {
+      "type": "number",
+      "description": "Minuti stimati per completare il compito"
+    },
+    "completato": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "materia",
+    "tipo"
+  ]
+}
